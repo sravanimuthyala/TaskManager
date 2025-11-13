@@ -158,7 +158,7 @@ def recommendations(db: Session = Depends(get_db)):
         messages=[
             {"role": "system", "content": "You are a helpful task management assistant"},
             {"role": "user", "content":(
-                     f"Here are my current tasks:\n{task_summary}\n\n"
+                     f"Here are my current tasks:\n{summary}\n\n"
                     "Please provide recommendations on which tasks to prioritize and next steps. "
                     "Format your response clearly: "
                     "- Use numbered tasks. "
