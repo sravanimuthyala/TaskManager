@@ -156,8 +156,17 @@ def recommendations(db: Session = Depends(get_db)):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": "You are a helpful task assistant"},
-            {"role": "user", "content": f"Here are my tasks:\n{summary}\nGive suggestions."},
+            {"role": "system", "content": "You are a helpful task management assistant"},
+            {"role": "user", "content":(
+                     f"Here are my current tasks:\n{task_summary}\n\n"
+                    "Please provide recommendations on which tasks to prioritize and next steps. "
+                    "Format your response clearly: "
+                    "- Use numbered tasks. "
+                    "- Use bold text for priorities. "
+                    "- Include bullet points for actionable next steps. "
+                    "- Add a short final recommendation. "
+                    "Return as plain text with line breaks so it's easy to read."
+            )},
         ]
     )
 
