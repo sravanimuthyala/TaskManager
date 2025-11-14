@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8001";
+const API_URL = "https://taskmanager-uihb.onrender.com";
 
 // CRUD
 export const getTasks = () => axios.get(`${API_URL}/tasks`);
